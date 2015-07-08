@@ -1,0 +1,6 @@
+#!/bin/bash
+
+git add . -A
+git commit -m "xiao kang"
+git remote add origin git@github.com:Litte-kang/smart_lock.git
+git push -u origin master

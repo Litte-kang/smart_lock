@@ -1,0 +1,69 @@
+<html>
+<title>登录</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0 maximum-scale=1.0, user-scalable=no">
+
+<style>
+.INPUT_TXT
+{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 18px;	
+}
+.MY_BUTTON
+{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 18px;	
+}
+</style>
+</head>
+<body>
+	<div align="center">小康智慧锁</div>
+	<table>
+		<tr align="center">
+			<td><img src="imgs/lock.png" onclick="openDoor('lock_01')"></br><div id="lock_01">大门</div></td>
+			<td><img src="imgs/lock.png" onclick="openDoor('lock_02')"></br><div id="lock_02">卧室</div></td>
+		</tr>	
+		<tr align="center">
+			<td><img src="imgs/lock.png" onclick="openDoor('lock_03')"></br><div id="lock_03">客房</div></td>
+			<td><img src="imgs/lock.png" onclick="openDoor('lock_04')"></br><div id="lock_04">书房</div></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td align="center"><input type="button" class="MY_BUTTON" value="添加门锁"></td>
+		</tr>				
+	</table>
+</body>
+
+<script>
+
+function openDoor(id)
+{
+	var doorName = document.getElementById(id).innerHTML;
+
+	doorName = doorName.substring(doorName.indexOf('</br>'));
+
+	alert("打开" + doorName);
+}
+
+function init()
+{
+	var bottom;
+	var right;
+	
+	bottom = document.body.clientHeight / 2;
+	right = document.body.clientWidth / 2 - 155;
+
+    document.getElementById('login').style.position = "absolute";
+    document.getElementById('login').style.background = "#4C6874";
+    document.getElementById('login').style.zIndex = "1112"
+    document.getElementById('login').style.bottom = bottom + "px";
+    document.getElementById('login').style.right = right + "px";
+
+}
+
+//init();
+
+</script>
+</html>
