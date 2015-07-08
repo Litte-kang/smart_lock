@@ -19,13 +19,35 @@ http.createServer(function(req, res){
 
 		if ("GET" === req.method || "get" === req.method)
 		{
-			Evt.emit(req.url, res, req);
-			Evt.emit("hello world");
+			var urls 	= req.url.substring(1).split('/');
+			var tmp 	= '';
+					
+			Evt.emit(("get"+req.url), res, req);
+
+			for (var i = 0; i < (urls.length - 1); ++i)
+			{
+				tmp = '/' + urls[i];
+			}
+
+			console.log(tmp);
+
+			Evt.emit(("get" + tmp), res, req);
 		}
 		else
 		{
-			Evt.emit(req.url, res, req);
-			Evt.emit("hello world");
+			var urls 	= req.url.substring(1).split('/');
+			var tmp 	= '';
+					
+			Evt.emit(("post" + req.url), res, req, body);
+
+			for (var i = 0; i < (urls.length - 1); ++i)
+			{
+				tmp = '/' + urls[i];
+			}
+
+			console.log(tmp);
+
+			Evt.emit(("post" + tmp), res, req, body);
 		}
 
 		
@@ -36,12 +58,12 @@ http.createServer(function(req, res){
 
 function get(url, callback)
 {
-	Evt.on(url, callback);
+	Evt.on(("get" + url), callback);
 }
 
 function post(url, callback)
 {
-	Evt.on(url, callback);
+	Evt.on(("post" + url), callback);
 }
 
 get("/", function(res, req){
@@ -68,7 +90,45 @@ get("/imgs/lock.png", function(res, req){
 
 });
 
-post("/door:name", function(res, req){
+get("/door", function(res, req){
 
+	console.log(":" + req.url);
 
+	res.end();
 });
+
+get("/js/lock.js", function (res, req){
+
+	fs.readFile("./public/js/lock.js", function(err, data){
+		
+		res.setHeader("Content-Type", "text/html");
+		res.writeHeader(200);
+		res.write(data);
+		res.end();		
+	});		
+});
+
+get("/js/my_http.js", function (res, req){
+
+	fs.readFile("./public/js/my_http.js", function(err, data){
+		
+		res.setHeader("Content-Type", "text/html");
+		res.writeHeader(200);
+		res.write(data);
+		res.end();		
+	});		
+});
+
+post("/door", function(res, req, body){
+
+	console.log(body);
+	res.write('failed');
+	res.end();
+});
+
+
+
+
+
+
+

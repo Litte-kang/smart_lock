@@ -22,30 +22,34 @@
 	<div align="center">小康智慧锁</div>
 	<table>
 		<tr align="center">
-			<td><img src="imgs/lock.png" onclick="openDoor('lock_01')"></br><div id="lock_01">大门</div></td>
-			<td><img src="imgs/lock.png" onclick="openDoor('lock_02')"></br><div id="lock_02">卧室</div></td>
+			<td>
+				<img src="imgs/lock.png" onclick="openDoor('lock_01')"></br>
+				<div id="lock_01" onclick="modifyDoorName(this)">大门</div>
+			</td>
+			<td>
+				<img src="imgs/lock.png" onclick="openDoor('lock_02')"></br>
+				<div id="lock_02" onclick="modifyDoorName(this)">卧室</div>
+			</td>
 		</tr>	
 		<tr align="center">
-			<td><img src="imgs/lock.png" onclick="openDoor('lock_03')"></br><div id="lock_03">客房</div></td>
-			<td><img src="imgs/lock.png" onclick="openDoor('lock_04')"></br><div id="lock_04">书房</div></td>
+			<td>
+				<img src="imgs/lock.png" onclick="openDoor('lock_03')"></br>
+				<div id="lock_03" onclick="modifyDoorName(this)">客房</div>
+			</td>
+			<td>
+				<img src="imgs/lock.png" onclick="openDoor('lock_04')"></br>
+				<div id="lock_04" onclick="modifyDoorName(this)">书房</div>
+			</td>
 		</tr>
 		<tr>
-			<td></td>
-			<td align="center"><input type="button" class="MY_BUTTON" value="添加门锁"></td>
+			<td align="center"><input type="button" onclick="modifyLockPassword()" class="MY_BUTTON" value="更换门锁"></td>
+			<td align="center"><input type="button" onclick="addDoorLock()" class="MY_BUTTON" value="添加门锁"></td>
 		</tr>				
 	</table>
 </body>
 
+<script src="js/lock.js" type="text/javascript"></script>
 <script>
-
-function openDoor(id)
-{
-	var doorName = document.getElementById(id).innerHTML;
-
-	doorName = doorName.substring(doorName.indexOf('</br>'));
-
-	alert("打开" + doorName);
-}
 
 function init()
 {
@@ -63,7 +67,7 @@ function init()
 
 }
 
-//init();
+initSmartLock();
 
 </script>
 </html>
