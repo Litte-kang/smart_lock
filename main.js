@@ -119,10 +119,21 @@ get("/js/my_http.js", function (res, req){
 	});		
 });
 
+get("/js/msg_dialog.js", function (res, req){
+
+	fs.readFile("./public/js/msg_dialog.js", function(err, data){
+		
+		res.setHeader("Content-Type", "text/html");
+		res.writeHeader(200);
+		res.write(data);
+		res.end();		
+	});		
+});
+
 post("/door", function(res, req, body){
 
 	console.log(body);
-	res.write('failed');
+	res.write('ok');
 	res.end();
 });
 

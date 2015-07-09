@@ -16,58 +16,42 @@
 	font-family: "Times New Roman", Times, serif;
 	font-size: 18px;	
 }
+.MSG_DAILOG{
+	font-family: "Times New Roman",Times, serif;
+	font-size: 16px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 2px;
+	padding-left: 10px;
+	color: #000000;
+}
 </style>
 </head>
 <body>
 	<div align="center">小康智慧锁</div>
-	<table>
-		<tr align="center">
-			<td>
-				<img src="imgs/lock.png" onclick="openDoor('lock_01')"></br>
-				<div id="lock_01" onclick="modifyDoorName(this)">大门</div>
-			</td>
-			<td>
-				<img src="imgs/lock.png" onclick="openDoor('lock_02')"></br>
-				<div id="lock_02" onclick="modifyDoorName(this)">卧室</div>
-			</td>
-		</tr>	
-		<tr align="center">
-			<td>
-				<img src="imgs/lock.png" onclick="openDoor('lock_03')"></br>
-				<div id="lock_03" onclick="modifyDoorName(this)">客房</div>
-			</td>
-			<td>
-				<img src="imgs/lock.png" onclick="openDoor('lock_04')"></br>
-				<div id="lock_04" onclick="modifyDoorName(this)">书房</div>
-			</td>
-		</tr>
+
+	<table height="400px" align="center" id="my_locks"></table>
+
+	</br>
+	<table align="center">
 		<tr>
-			<td align="center"><input type="button" onclick="modifyLockPassword()" class="MY_BUTTON" value="更换门锁"></td>
-			<td align="center"><input type="button" onclick="addDoorLock()" class="MY_BUTTON" value="添加门锁"></td>
-		</tr>				
+			<td width="166px" align="left"><input type="button" onclick="modifyLockPassword('block')" class="MY_BUTTON" value="更换门锁"></td>
+			<td align="right"><input type="button" onclick="addLockDialog('block')" class="MY_BUTTON" value="添加门锁"></td>
+		</tr>	
 	</table>
+	<div id="msg_dialog">
+		<div align="left" class="MSG_DAILOG" id="msg_dialog_title"></div>
+		<div class="MSG_DAILOG" id="msg_dialog_content"></div>
+	</div>
+
 </body>
 
 <script src="js/lock.js" type="text/javascript"></script>
+
 <script>
-
-function init()
-{
-	var bottom;
-	var right;
-	
-	bottom = document.body.clientHeight / 2;
-	right = document.body.clientWidth / 2 - 155;
-
-    document.getElementById('login').style.position = "absolute";
-    document.getElementById('login').style.background = "#4C6874";
-    document.getElementById('login').style.zIndex = "1112"
-    document.getElementById('login').style.bottom = bottom + "px";
-    document.getElementById('login').style.right = right + "px";
-
-}
 
 initSmartLock();
 
 </script>
+
 </html>
