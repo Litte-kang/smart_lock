@@ -30,12 +30,14 @@
 <body>
 	<div align="center">小康智慧锁</div>
 
-	<table height="400px" align="center" id="my_locks"></table>
+	<form>
+		<table height="400px" align="center" id="my_locks"></table>
+	</form>
 
 	</br>
 	<table align="center">
 		<tr>
-			<td width="166px" align="left"><input type="button" onclick="modifyLockPassword('block')" class="MY_BUTTON" value="更换门锁"></td>
+			<td width="166px" align="left"><input type="button" id="modify_door_lock_button" onclick="modifyLockPasswordDialog('block')" class="MY_BUTTON" value="更换门锁"></td>
 			<td align="right"><input type="button" onclick="addLockDialog('block')" class="MY_BUTTON" value="添加门锁"></td>
 		</tr>	
 	</table>
@@ -49,6 +51,13 @@
 <script src="js/lock.js" type="text/javascript"></script>
 
 <script>
+
+function getMac()
+{
+
+}
+
+getMac();
 
 initSmartLock();
 
